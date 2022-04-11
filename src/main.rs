@@ -20,7 +20,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     let args = Args::parse();
     if args.verbose == true {
-        println!("Running : {}\n", args.file);
+        println!("Running: {}\n", args.file);
     }
     let file_input = fs::read_to_string(args.file)?.parse()?;
 

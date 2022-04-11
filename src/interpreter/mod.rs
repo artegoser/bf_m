@@ -38,7 +38,7 @@ impl Interpreter {
           self.mem[self.mem_addr] -= 1;
         }
       } else if char == '.' {
-        print!("{}", self.mem[self.mem_addr] as char)
+        print!("{}", self.mem[self.mem_addr] as char);
       } else if char == ',' {
         let mut buffer: String = "".to_string();
         io::stdin().read_line(&mut buffer)?;
@@ -50,7 +50,9 @@ impl Interpreter {
         }
         self.mem_addr += 1;
       } else if char == '<' {
-        self.mem_addr -= 1;
+        if self.mem_addr != 0 {
+          self.mem_addr -= 1;
+        }
       } else if char == '[' {
         if self.mem[self.mem_addr] == 0 {
           let mut brackets: usize = 0;
